@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrangeTask
+namespace LogHandler
 {
     public enum TransportProtocolType
     {
@@ -48,26 +48,26 @@ namespace OrangeTask
             if (Parameters.Length < 5 || int.TryParse(Parameters[4], out int Port) == false) log.Port = 0;
             else log.Port = Port;
 
-            if (Parameters.Length < 6 || Enum.TryParse(typeof(TransportProtocolType), Parameters[5], out var TransportProtocolType) == false) log.TransportProtocol = OrangeTask.TransportProtocolType.None;
+            if (Parameters.Length < 6 || Enum.TryParse(typeof(TransportProtocolType), Parameters[5], out var TransportProtocolType) == false) log.TransportProtocol = LogHandler.TransportProtocolType.None;
             else log.TransportProtocol = (TransportProtocolType)TransportProtocolType;
 
             if (Parameters.Length < 7) log.Username = "";
             else log.Username = Parameters[6];
 
-            if (Parameters.Length < 8 || Enum.TryParse(typeof(ActionType), Parameters[7], out var ActionType) == false) log.Action = OrangeTask.ActionType.None;
+            if (Parameters.Length < 8 || Enum.TryParse(typeof(ActionType), Parameters[7], out var ActionType) == false) log.Action = LogHandler.ActionType.None;
             else log.Action = (ActionType)ActionType;
 
             return log;
         }
         public static Log Random(int Seed, DateTime dateTime, ActionType action, TransportProtocolType transportProtocol, List<KeyValuePair<string, string>> UsersPair)
         {
-            var UserPair = UsersPair[OrangeTask.Random.Int(0, UsersPair.Count)];
+            var UserPair = UsersPair[LogHandler.Random.Int(0, UsersPair.Count)];
             return new Log()
             {
                 DateTime = dateTime,
                 Action = action,
-                DestinationIP = OrangeTask.Random.IP,
-                Port = OrangeTask.Random.Int(20, 1024),
+                DestinationIP = LogHandler.Random.IP,
+                Port = LogHandler.Random.Int(20, 1024),
                 SourceIP = UserPair.Value,
                 TransportProtocol = transportProtocol,
                 Username = UserPair.Key

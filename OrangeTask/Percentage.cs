@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrangeTask
+namespace LogHandler
 {
     public struct Percentage
     {

@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using OrangeTask;
+using LogHandler;
 
 Console.WriteLine("This application is a PoC on generating and reading log files for OBS presentation. If you are not authorized to use this application, please close it now.");
 

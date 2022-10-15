@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Generator = System.Random  ;
-namespace OrangeTask
+namespace LogHandler
 {
     public class Random
     { 
